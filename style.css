@@ -1,0 +1,48 @@
+#title{
+    color: white;
+    text-align: center;
+
+    font-style: italic;
+}
+
+#titleBar{
+    width: 100%;
+    background-color: red;
+    margin-top: 0px;
+    padding: 2%;
+    display: flex;
+
+}
+#containerPerks,
+.titlePersk,
+#flagsDiv{
+    text-align: center;
+    justify-content: start;
+}
+
+/* #containerPerks{
+    display: none;
+} */
+    /* iOS places the subtitle above the title */
+ion-card-header.ios {
+        display: flex;
+        flex-flow: column-reverse;
+      }
+
+ion-card-content p {
+    color: black;
+    font-weight: bold;
+    font-size: 12px;
+}
+#containerPerks > ion-card{
+    border: solid green 2px;
+}
+
+#flagsDiv,
+#chooseFlag{
+display: none; 
+}
+
+#flagsDiv > ion-card{
+        border: solid red 2px;
+}

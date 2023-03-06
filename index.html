@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>RedFlags</title>
+   <script src="./randomizer.js"></script>
+   <link rel="stylesheet" href="style.css">
+   <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+   <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+</head>
+
+<body>
+<div id="titleBar">
+       <h1 id="title" style="flex-grow: 2;" > RedFlag!</h1> 
+</div>
+
+   <br>
+<br>
+<br>
+
+   
+<div id="containerPerks">
+    <h2 class="titlePersk">Perks</h2>
+<br>
+<h3>Choose one Perk:</h3>
+
+<ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Number 1</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+        <p id="perks1"> </p>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Number 2</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+        <p id="perks2"> </p>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Number 3</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+        <p id="perks3"> </p>
+    </ion-card-content>
+  </ion-card>
+
+
+  
+</div>
+
+<div id="choosePerk" class= "titlePersk" style="display: none;">
+    <h3>Choosen Perk</h3>
+    <br>
+<br>
+
+
+    <h2 style="color: green;"></h2>
+    <br>
+<br>
+<br>
+    <ion-button color="danger">Go To Flags</ion-button>
+
+</div>
+
+<br>
+<br>
+<div id="flagsDiv">
+  <h2 style="color: red; font-style: italic;">Flags</h2>
+    <h3>Choose one Flag:</h3>
+
+    <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Number 1</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+        <p id="flags1"> </p>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Number 2</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+        <p id="flags2"> </p>
+    </ion-card-content>
+  </ion-card>
+
+</div>
+
+<div id="chooseFlag" class= "titlePersk">
+    <h3>Choosen Flag</h3>
+    <br>
+    <br>
+    <h2 style="color: red;"> </h2>
+    <p id= "reload" onclick="location.reload()" style="flex-grow: 1; font-size: 200%; " >🔄</p>
+
+
+</div>
+
+
+
+<script>
+
+    
+    let p = processLineByLine(perks, 3)
+    let perks1 = document.getElementById('perks1')
+    perks1.innerHTML = `${p[0]}`
+    let perks2 = document.getElementById('perks2')
+    perks2.innerHTML = `${p[1]}`
+    let perks3 = document.getElementById('perks3')
+    perks3.innerHTML = `${p[2]}`
+
+    let f = processLineByLine(flags, 2)
+    let flags1 = document.getElementById('flags1')
+    flags1.innerHTML = `${f[0]}`
+    let flags2 = document.getElementById('flags2')
+    flags2.innerHTML = `${f[1]}`
+    
+
+    console.log(document.querySelectorAll('#ion-card'))
+
+
+    let perksCard = document.querySelectorAll('#containerPerks > ion-card')
+
+    perksCard.forEach(element => {
+    
+    element.addEventListener('click', function(){
+    document.querySelector('#containerPerks').style.display = "none"
+    document.querySelector('#choosePerk > h2').innerHTML = `${element.querySelector('p').innerText}`
+    document.querySelector('#choosePerk').style.display= "block"
+    
+
+    })
+});
+
+document.querySelector('ion-button').addEventListener('click', function(){
+    this.remove()
+
+    document.querySelector('#flagsDiv').style.display = "block"
+
+let perksCard = document.querySelectorAll('#flagsDiv > ion-card')
+
+perksCard.forEach(element => {
+
+element.addEventListener('click', function(){
+document.querySelector('#flagsDiv').style.display = "none"
+document.querySelector('#chooseFlag > h2').innerHTML = `${element.querySelector('p').innerText}`
+document.querySelector('#chooseFlag').style.display= "block"
+
+
+})
+});
+
+
+})
+
+</script>
+</body>
+
+</html>
